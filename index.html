@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>新闻管理系统</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/app.css">
+</head>
+<body ng-app="myApp">
+	<header>
+		<div class="container">
+			<div class="name">
+				<span class="msg">欢迎回来</span>
+				<a href="#" class="username">{{userName}}</a>
+			</div>
+			<h1>新闻管理系统</h1>
+		</div>
+	</header>
+	<div class="body">
+		<div class="container">
+			<nav>
+				<div class="avatar-area">
+					<div class="avatar"><img src="img/01.jpg" alt=""></div>
+					<div class="nav-profile">
+						<span>{{userName}}</span>
+						<span>管理员</span>
+						<a href="">资料</a>|<a href="">编辑</a>
+					</div>
+				</div>
+				<div class="tabs" ng-controller="navCtrl">
+					<ul class="ulInTabs">
+						<li  ng-repeat="item in list">
+							<h3 class="nav-header">{{item.title}}</h3>
+							<ul class=" nav nav-list ">
+								<li ng-repeat="childItem in item.childList">
+									<a ng-href={{childItem.url}}>{{childItem.title}}</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</nav>
+			<section ui-view></section>
+			<!-- <div class="content nav-stacked">
+				<li role="presentation" class="active"><a href="#">Home</a></li>
+				<li role="presentation"><a href="#">Profile</a></li>
+				<li role="presentation"><a href="#">Messages</a></li>
+			</div> -->
+		</div>
+	</div>
+<script type="text/javascript" src="js/jquery.js"></script>
+<!-- <script type="text/javascript" src="js/bootstrap.js"></script> -->
+<script type="text/javascript" src="js/angular-1-4-1.js"></script>
+<script type="text/javascript" src="js/angular-ui-router.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>
